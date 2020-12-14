@@ -53,8 +53,7 @@ let a = alphabet_from_list (li @ le) ;;
 let rec prefixes s =
   (*On initialisera une liste de taille len(s)+1 tout en appliquant une extraction de prefixes de s on utilisant x (entier) donné par List.init *)
   List.init ((String.length s)+1) (fun x -> if x=0 then "e" else "e"^(String.sub s 0 x));;
-(*Test de la fonction prefixes*)
-prefixes "aba";;
+
 
 (* prefixes_of_list : string list -> string list
    renvoie la liste triée et sans doublons des préfixes des chaînes 
@@ -64,7 +63,7 @@ let prefixes_of_list l =
   let list_strs= List.flatten (List.map (fun x -> prefixes x) l) in
   (*On trie la liste résultante , sans doublons*)
 	List.sort_uniq compare list_strs;;
-prefixes_of_list ["abcd";"abbb";"bcd";"zuv"];;   
+  
   
 (* declare_types_alphabet : char list -> string
    prend une liste de caractères [c_1; ...; c_n] et renvoie une chaîne 
@@ -79,7 +78,7 @@ let declare_types_alphabet cl =
   in
   let str_of_cl= string_of_listChars cl in
   "(A "^str_of_cl^")";;
-declare_types_alphabet ['a';'b';'c'];;
+
 
 (*
   string_of_listStrings : fonction récursive pour concatener les chaines de l dans une seule chaine sous un certain format : string list -> string -> string 
@@ -102,8 +101,7 @@ let declare_types_trie l =
   (*Récupération des éléments de prefixes_l sous forme d'une chaine de caractères*)
   let str_of_l= string_of_listStrings prefixes_l " " in 
   "(T "^str_of_l^")";;
-(*Test de la fonction declare_types_trie *)
-declare_types_trie ["abcd"];;
+
 
 (* declare_types : string list -> char list -> string *)  
 let declare_types l cl =
